@@ -1,7 +1,9 @@
 var prompt = require('prompt-sync')();
 
 function view(counter) {
-    return String(counter)
+    return String(`\n\n        Count: ${counter}
+                   \n        (+) (-)
+                   \n\n        (q) for quit\n`)
 }
 
 
@@ -22,9 +24,7 @@ function app(counter) {
     while (x) {
         const currentView = view(counter)
         console.clear()
-        console.log(`\n        Counter: ${currentView}\n`)
-        console.log(`        (+) (-)\n\n`)
-        console.log(`        (q) for quit\n`)
+        console.log(currentView)
         const msg = prompt(`What would you do? `)
         counter = update(msg, counter)
         if (counter === false) {
