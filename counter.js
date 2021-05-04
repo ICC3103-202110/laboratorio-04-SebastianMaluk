@@ -1,17 +1,16 @@
 var prompt = require('prompt-sync')();
 
 function view(counter) {
-    var str = String(counter)
-    return str
+    return String(counter)
 }
 
 
 function update(msg, counter) {
-    if (msg == "+") {
+    if (msg === "+") {
         return counter + 1
-    } else if (msg == "-") {
+    } else if (msg === "-") {
         return counter - 1
-    } else if (msg == "q") {
+    } else if (msg === "q") {
         return false
     } else {
         return counter
@@ -28,7 +27,7 @@ function app(counter) {
         console.log(`        (q) for quit\n`)
         const msg = prompt(`What would you do? `)
         counter = update(msg, counter)
-        if (counter == false) {
+        if (counter === false) {
             x = false
         }
     }
